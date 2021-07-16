@@ -11,6 +11,8 @@ import { sendHelp } from '@/handlers/sendHelp'
 import { i18n, attachI18N } from '@/helpers/i18n'
 import { setLanguage, sendLanguage } from '@/handlers/language'
 import { addBasket } from '@/handlers/addBasket'
+import { addWish } from '@/handlers/addWish'
+import { share } from '@/handlers/share'
 import { attachUser } from '@/middlewares/attachUser'
 
 // Middlewares
@@ -21,8 +23,8 @@ bot.use(i18n.middleware(), attachI18N)
 bot.command(['help', 'start'], sendHelp)
 bot.command('language', sendLanguage)
 bot.command('addBasket', addBasket)
-bot.command('addWish', sendLanguage)
-bot.command('share', sendLanguage)
+bot.command('addWish', addWish)
+bot.command('share', share)
 // Actions
 bot.action(localeActions, setLanguage)
 // Errors

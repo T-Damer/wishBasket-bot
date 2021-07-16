@@ -4,3 +4,4 @@ help: |
 language: Please, select the language.
 language_selected: <b>Bot</b> now speaks English.
 addBasket: Please, send me a wish basket name.
+addWish: Please, send me a name of your wish.
