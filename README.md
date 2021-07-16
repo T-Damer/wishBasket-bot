@@ -1,8 +1,14 @@
-# Telegram bot template based on telegraf.js.org
+![logo](https://user-images.githubusercontent.com/49658988/125970132-aaee1bba-6757-4344-8cc5-888bfd9a0093.png)
 
-Please, enjoy this starter template for Telegram bots based on telegraf.js.org. It includes most common middlewares used by me, MongoDB integration, language picker and internationalization and shows basic encapsulation techniques used by me.
+# Wish basket bot
 
-# Installation and local launch
+Hello, this is repo of @WishBasket_bot for telegram. It allows you to create wish lists inside it and share them among your friends! Or you can open your wish list to friends, so they can choose a present for your birthday :D 
+
+# Developer info
+
+This bot is based on starter template for Telegram bots, which based based on telegraf.js.org. It includes most common middlewares used by me, MongoDB integration, language picker and internationalization and shows basic encapsulation techniques used by me.
+
+## Installation and local launch
 
 1. Clone this repo: `git clone https://github.com/backmeupplz/telegraf-template`
 2. Launch the [mongo database](https://www.mongodb.com/) locally
@@ -12,7 +18,7 @@ Please, enjoy this starter template for Telegram bots based on telegraf.js.org. 
 
 And you should be good to go! Feel free to fork and submit pull requests. Thanks!
 
-# Environment variables
+## Environment variables
 
 - `TOKEN` — Telegram bot token
 - `MONGO`— URL of the mongo database
