@@ -2,11 +2,7 @@
 
 # Wish basket bot
 
-<<<<<<< HEAD
 Hello, this is repo of [@WishBasket_bot](https://t.me/wishbasket_bot) for telegram. It allows you to create wish lists inside it and share them among your friends! Or you can open your wish list to friends, so they can choose a present for your birthday :D
-=======
-Hello, this is repo of [@WishBasket_bot](https://t.me/wishbasket_bot) for telegram. It allows you to create wish lists inside it and share them among your friends! Or you can open your wish list to friends, so they can choose a present for your birthday :D 
->>>>>>> ca6f043709af8bddabb6f7e34f16defc5e7cce74
 
 # Developer info
 
