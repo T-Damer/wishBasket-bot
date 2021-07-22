@@ -1,5 +1,7 @@
 <img src="https://user-images.githubusercontent.com/49658988/125970132-aaee1bba-6757-4344-8cc5-888bfd9a0093.png" alt="logo-py-qt-yt" width="300" height="300"/>
 
+---
+
 # Wish basket bot
 
 Hello, this is repo of [@WishBasket_bot](https://t.me/wishbasket_bot) for telegram. It allows you to create wish lists inside it and share them among your friends! Or you can open your wish list to friends, so they can choose a present for your birthday :D
@@ -28,3 +30,7 @@ Also, please, consider looking at `.env.sample`.
 # License
 
 MIT — use for any purpose. Would be great if you could leave a note about the original developers. Thanks!
+
+---
+
+<a href="https://www.buymeacoffee.com/tdamer"><img src="https://img.buymeacoffee.com/button-api/?text=Support me with a coffee&emoji=☕️&slug=tdamer&button_colour=ffcc33&font_colour=000&font_family=Lato&outline_colour=000&coffee_colour=000"></a>
