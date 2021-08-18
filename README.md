@@ -13,7 +13,7 @@ This bot is based on starter template for Telegram bots, which based based on te
 ## Installation and local launch
 
 1. Clone this repo: `git clone https://github.com/T-Damer/wishBasket-bot`
-2. Launch the [mongo database](https://www.mongodb.com/) locally
+2. Launch the [mongo database](https://www.mongodb.com/) locally or launch remote cluster at [mongo.atlas](https://cloud.mongodb.com/)
 3. Create `.env` with the environment variables listed below
 4. Run `yarn install` in the root folder
 5. Run `yarn develop`
