@@ -14,6 +14,7 @@ import { addBasket } from '@/handlers/addBasket'
 import { addWish } from '@/handlers/addWish'
 import { share } from '@/handlers/share'
 import { attachUser } from '@/middlewares/attachUser'
+import express = require('express')
 
 // Middlewares
 bot.use(ignoreOldMessageUpdates)
@@ -33,3 +34,12 @@ bot.catch(console.error)
 bot.launch().then(() => {
   console.info(`Bot ${bot.botInfo.username} is up and running`)
 })
+// Start server for Heroku
+const app = express()
+app.use(express.static('public'))
+app.get('/', function (req, res) {
+  res.send(
+    "<h1>Hello There! You found <a href='https://t.me/wishbasket_bot'>@WishBasket_bot</a> backend</h1>"
+  )
+})
+app.listen(process.env.PORT || 3000, () => console.log('Server is running...'))
