@@ -1,10 +1,10 @@
 {
-  "name": "telegraf-template",
+  "name": "wish-basket-bot",
   "version": "1.0.0",
-  "description": "Telegram bot template based on telegraf.js.org",
+  "description": "Telegram bot that will help you with wish-lists",
   "main": "dist/app.js",
-  "repository": "https://github.com/backmeupplz/telegraf-template",
-  "author": "backmeupplz <backmeupplz@gmail.com>",
+  "repository": "https://github.com/T-Damer/wishBasket-bot",
+  "author": "T-DaMER <dpancov64@gmail.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
