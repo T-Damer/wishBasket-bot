@@ -1,9 +1,5 @@
 import * as mongoose from 'mongoose'
 
-mongoose.connect(process.env.MONGO, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-mongoose.set('useCreateIndex', true)
+mongoose.connect(process.env.MONGO)
 
 export * from './User'
