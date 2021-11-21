@@ -1,8 +1,3 @@
-const Composer = require('telegraf/composer')
-const session = require('telegraf/session')
-const Stage = require('telegraf/stage')
-const Markup = require('telegraf/markup')
-const WizardScene = require('telegraf/scenes/wizard')
 import { Context } from 'telegraf'
 
 // 1. Send a message with questions
