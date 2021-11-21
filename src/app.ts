@@ -1,4 +1,4 @@
-import { localeActions } from './handlers/language'
+import { localeActions } from '@/handlers/language'
 // Setup @/ aliases for modules
 import 'module-alias/register'
 // Config dotenv
