@@ -15,6 +15,8 @@ import { addWish } from '@/handlers/addWish'
 import { share } from '@/handlers/share'
 import { attachUser } from '@/middlewares/attachUser'
 import express = require('express')
+import end from '@/handlers/end'
+import handleNaming from '@/handlers/handleNaming'
 
 // Middlewares
 bot.use(ignoreOldMessageUpdates)
@@ -26,6 +28,8 @@ bot.command('language', sendLanguage)
 bot.command('addBasket', addBasket)
 bot.command('addWish', addWish)
 bot.command('share', share)
+bot.command('end', end)
+bot.on('message', handleNaming)
 // Actions
 bot.action(localeActions, setLanguage)
 // Errors
