@@ -6,6 +6,8 @@ export class User {
   id!: number
   @prop({ required: true, default: 'en' })
   language!: string
+  @prop({ required: false, default: '' })
+  currentBasket!: string
 }
 
 const UserModel = getModelForClass(User)

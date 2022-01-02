@@ -6,7 +6,6 @@ import { User } from '@/models/User'
 class Context extends BaseContext {
   readonly i18n!: I18nContext
   dbuser!: DocumentType<User>
-  basketName!: string
 
   replyWithLocalization: this['reply'] = (text, other, ...rest) => {
     text = this.i18n.t(text)

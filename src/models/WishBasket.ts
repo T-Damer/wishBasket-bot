@@ -8,7 +8,7 @@ export class WishBasket {
   @prop({ required: true, default: 'My first basket' })
   name!: string
 
-  @prop({ required: true, default: ['Wish you to be happy :)'] })
+  @prop({ required: true, default: [''] })
   items!: string[]
 }
 
