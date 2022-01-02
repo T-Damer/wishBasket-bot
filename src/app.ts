@@ -1,49 +1,58 @@
-import { localeActions } from '@/handlers/language'
-// Setup @/ aliases for modules
 import 'module-alias/register'
-// Config dotenv
-import * as dotenv from 'dotenv'
-dotenv.config({ path: `${__dirname}/../.env` })
-// Dependencies
-import { bot } from '@/helpers/bot'
-import { ignoreOldMessageUpdates } from '@/middlewares/ignoreOldMessageUpdates'
-import { sendHelp } from '@/handlers/sendHelp'
-import { i18n, attachI18N } from '@/helpers/i18n'
-import { setLanguage, sendLanguage } from '@/handlers/language'
-import { addBasket } from '@/handlers/addBasket'
-import { addWish } from '@/handlers/addWish'
-import { share } from '@/handlers/share'
-import { attachUser } from '@/middlewares/attachUser'
-import express = require('express')
-import end from '@/handlers/end'
-import handleNaming from '@/handlers/handleNaming'
+import 'reflect-metadata'
+import 'source-map-support/register'
 
-// Middlewares
-bot.use(ignoreOldMessageUpdates)
-bot.use(attachUser)
-bot.use(i18n.middleware(), attachI18N)
-// Commands
-bot.command(['help', 'start'], sendHelp)
-bot.command('language', sendLanguage)
-bot.command('addBasket', addBasket)
-bot.command('addWish', addWish)
-bot.command('share', share)
-bot.command('end', end)
-bot.on('message', handleNaming)
-// Actions
-bot.action(localeActions, setLanguage)
-// Errors
-bot.catch(console.error)
-// Start bot
-bot.launch().then(() => {
+import { ignoreOld, sequentialize } from 'grammy-middlewares'
+import { run } from '@grammyjs/runner'
+import addBasket from '@/handlers/addBasket'
+import addWish from '@/handlers/addWish'
+import attachUser from '@/middlewares/attachUser'
+import bot from '@/helpers/bot'
+import configureI18n from '@/middlewares/configureI18n'
+import handleLanguage from '@/handlers/language'
+import i18n from '@/helpers/i18n'
+import languageMenu from '@/menus/language'
+import sendHelp from '@/handlers/help'
+import startMongo from '@/helpers/startMongo'
+
+async function runApp() {
+  console.log('Starting app...')
+  // Mongo
+  await startMongo()
+  console.log('Mongo connected')
+  bot
+    // Middlewares
+    .use(sequentialize())
+    .use(ignoreOld())
+    .use(attachUser)
+    .use(i18n.middleware())
+    .use(configureI18n)
+    // Menus
+    .use(languageMenu)
+  // Commands
+  bot.command(['help', 'start'], sendHelp)
+  bot.command('language', handleLanguage)
+  bot.command('addBasket', (ctx) => {
+    void ctx.reply('Send me a name for your basket')
+  })
+
+  bot.command('addWish', (ctx) => {
+    void ctx.reply('Send me a wish')
+  })
+  bot.on('msg:text', async (ctx) => {
+    if (ctx.basketName) {
+      await addWish(ctx)
+    } else {
+      console.log(ctx.basketName)
+      await addBasket(ctx)
+    }
+  })
+  // Errors
+  bot.catch(console.error)
+  // Start bot
+  await bot.init()
+  run(bot, Infinity)
   console.info(`Bot ${bot.botInfo.username} is up and running`)
-})
-// Start server for Heroku
-const app = express()
-app.use(express.static('public'))
-app.get('/', function (req, res) {
-  res.send(
-    "<h1>Hello There! You found <a href='https://t.me/wishbasket_bot'>@WishBasket_bot</a> backend</h1>"
-  )
-})
-app.listen(process.env.PORT || 3000, () => console.log('Server is running...'))
+}
+
+void runApp()

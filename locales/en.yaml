@@ -1,0 +1,8 @@
+name: English
+help: |
+  <b>This bot</b> allows you to see how Telegram bots can be built
+language: Please, select the language
+language_selected: <b>This bot</b> now speaks English
+provideBasketName: Please, provide the basket name 🧺
+basketCreated: <b>The basket</b> was created
+addWish: What do you wish? ✨
