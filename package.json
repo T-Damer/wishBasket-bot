@@ -1,7 +1,7 @@
 {
   "name": "wish-basket-bot",
   "version": "1.0.0",
-  "description": "Telegram bot, that will help you to create and manage wish lists",
+  "description": "This telegram bot will help you to create and manage wish lists ✨",
   "main": "dist/app.js",
   "repository": "https://github.com/T-Damer/wishBasket-bot",
   "author": "t-damer <dpancov64@gmail.com>",

@@ -1,6 +1,8 @@
 name: Turkish
 help: |
-  <b>Bot</b> nasıl Telegram botları yapacağınızı görmenizi sağlıyor.
+  Bu telgram botu, dilek listeleri oluşturmanıza ve yönetmenize yardımcı olacak ✨
 language: Lütfen, dili seçin.
 language_selected: <b>Bot</b> Türkçe konuşuyor.
-basketCreated: <b>The basket</b> was created
+basketCreated: <b>Sepet</b> oluşturuldu
+provideBasketName: Lütfen sepet adını belirtin 🧺
+addWish: Ne dilersin? ✨
