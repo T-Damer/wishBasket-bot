@@ -7,6 +7,7 @@ import { run } from '@grammyjs/runner'
 import addBasket from '@/handlers/addBasket'
 import addWish from '@/handlers/addWish'
 import attachUser from '@/middlewares/attachUser'
+import basketMenu from '@/menus/basket'
 import bot from '@/helpers/bot'
 import configureI18n from '@/middlewares/configureI18n'
 import handleLanguage from '@/handlers/language'
@@ -29,24 +30,19 @@ async function runApp() {
     .use(configureI18n)
     // Menus
     .use(languageMenu)
+    .use(basketMenu)
   // Commands
   bot.command(['help', 'start'], sendHelp)
   bot.command('language', handleLanguage)
-  bot.command('addBasket', (ctx) => {
-    void ctx.reply('Send me a name for your basket')
+  bot.command('addBasket', async (ctx) => await addBasket(ctx))
+  bot.command('addWish', async (ctx) => await addWish(ctx))
+  // Handle choosing the basket
+  bot.on('callback_query:data', async (ctx) => {
+    await ctx.answerCallbackQuery({
+      text: `Selected the ${ctx.callbackQuery.data} basket`,
+    })
   })
 
-  bot.command('addWish', (ctx) => {
-    void ctx.reply('Send me a wish')
-  })
-  bot.on('msg:text', async (ctx) => {
-    if (ctx.basketName) {
-      await addWish(ctx)
-    } else {
-      console.log(ctx.basketName)
-      await addBasket(ctx)
-    }
-  })
   // Errors
   bot.catch(console.error)
   // Start bot

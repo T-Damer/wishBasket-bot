@@ -12,7 +12,7 @@ export class WishBasket {
   items!: string[]
 }
 
-const WishBasketModel = getModelForClass(WishBasket, {
+export const WishBasketModel = getModelForClass(WishBasket, {
   schemaOptions: { timestamps: true },
 })
 

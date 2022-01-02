@@ -2,8 +2,6 @@
 
 ---
 
-<img src="https://img.shields.io/badge/dynamic/json?color=green&label=IsDownBot&query=%3Fstyle%3Dflat%26logo%3Dtelegram&url=https%3A%2F%2Fbackend.isbotdown.com%2Fyourbot" />
-
 # Wish basket bot
 
 Hello, this is repo of [@WishBasket_bot](https://t.me/wishbasket_bot) for telegram. It allows you to create wish lists inside it and share them among your friends! Or you can open your wish list to friends, so they can choose a present for your birthday 🎁

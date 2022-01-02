@@ -6,3 +6,5 @@ language_selected: <b>This bot</b> now speaks English
 provideBasketName: Please, provide the basket name 🧺
 basketCreated: <b>The basket</b> was created
 addWish: What do you wish? ✨
+notProperName: Please, provide a name like <code>/Command <b>name</b></code>]
+basketMenu: Select your basket 🧺

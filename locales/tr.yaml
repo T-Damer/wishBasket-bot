@@ -6,3 +6,4 @@ language_selected: <b>Bot</b> Türkçe konuşuyor.
 basketCreated: <b>Sepet</b> oluşturuldu
 provideBasketName: Lütfen sepet adını belirtin 🧺
 addWish: Ne dilersin? ✨
+notProperName: Please, provide a name like <code>Command <b>name</b></code>
