@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/49658988/125970132-aaee1bba-6757-4344-8cc5-888bfd9a0093.png" alt="logo-py-qt-yt" width="300" height="300"/>
+<img src="assets/logo.png" alt="logo-py-qt-yt" width="300" height="300"/>
 
 ---
 
