@@ -1,18 +1,18 @@
 import { WishBasketModel, addWishToBasket } from '@/models/WishBasket'
 import { sendBasketMenu } from '@/menus/basket'
+import { sendWishMenu } from '@/menus/wish'
 import Context from '@/models/Context'
 import sendOptions from '@/helpers/sendOptions'
 
 export default async function addWish(ctx: Context) {
   if (!ctx.dbuser.currentBasket) {
-    await sendBasketMenu(ctx)
+    return await sendBasketMenu(ctx)
   } else {
     if (ctx.match && typeof ctx.match === 'string') {
-      await addWishToBasket(ctx.dbuser.currentBasket, ctx.match)
+      await addWishToBasket(ctx.dbuser, ctx.match)
       return ctx.replyWithLocalization('wishCreated', sendOptions(ctx))
     }
   }
-  return ctx.replyWithLocalization('provideBasketName', sendOptions(ctx))
 }
 
 export async function sendWishes(ctx: Context) {
@@ -25,4 +25,11 @@ export async function sendWishes(ctx: Context) {
   } else {
     return 'basket not found'
   }
+}
+
+export async function completeWish(ctx: Context) {
+  if (!ctx.dbuser.currentBasket) {
+    await sendBasketMenu(ctx)
+  }
+  await sendWishMenu(ctx)
 }

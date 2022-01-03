@@ -7,5 +7,6 @@ provideBasketName: Please, provide the basket name 🧺
 basketCreated: <b>The basket</b> was created
 addWish: What do you wish? ✨
 wishCreated: Great 🏀 Now you can check your wish using /checkWishes command
-notProperName: Please, provide a command name like <code>/command <b>name</b></code>]
+notProperName: Please, provide a command name like <code>/command <b>name</b></code>
 basketMenu: Select your basket 🧺
+error: Whoops, something went wrong 👀

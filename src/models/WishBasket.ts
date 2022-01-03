@@ -1,27 +1,29 @@
-import { Ref, getModelForClass, prop } from '@typegoose/typegoose'
 import { User } from '@/models/User'
+import { getModelForClass, prop } from '@typegoose/typegoose'
+
+type Wish = { title: string; completed: boolean }
 
 export class WishBasket {
-  @prop({ ref: () => User, required: true, index: true })
-  owner!: Ref<User>
+  @prop({ required: true, index: true })
+  ownerId!: number
 
   @prop({ required: true, default: 'My first basket' })
   name!: string
 
-  @prop({ required: true, default: [''] })
-  items!: string[]
+  @prop({})
+  items!: Wish[]
 }
 
 export const WishBasketModel = getModelForClass(WishBasket, {
   schemaOptions: { timestamps: true },
 })
 
-export async function findOrCreateBasket(name: string, owner: User) {
+export async function findOrCreateBasket(name: string, ownerId: number) {
   let basket = await WishBasketModel.findOne({ name })
   if (!basket) {
     // Try/catch is used to avoid race conditions
     try {
-      basket = await new WishBasketModel({ name, owner }).save()
+      basket = await new WishBasketModel({ name, ownerId }).save()
     } catch (err) {
       basket = await WishBasketModel.findOne({ name })
     }
@@ -29,9 +31,10 @@ export async function findOrCreateBasket(name: string, owner: User) {
   return basket
 }
 
-export async function addWishToBasket(basketName: string, wishName: string) {
+export async function addWishToBasket(user: User, wishName: string) {
+  const wish: Wish = { title: wishName, completed: false }
   await WishBasketModel.updateOne(
-    { name: basketName },
-    { $push: { items: wishName } }
+    { owner: user.id, name: user.currentBasket },
+    { $push: { items: wish } }
   )
 }

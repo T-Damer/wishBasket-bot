@@ -4,8 +4,10 @@ import { getModelForClass, modelOptions, prop } from '@typegoose/typegoose'
 export class User {
   @prop({ required: true, index: true, unique: true })
   id!: number
+
   @prop({ required: true, default: 'en' })
   language!: string
+
   @prop({ required: false, default: '' })
   currentBasket!: string
 }

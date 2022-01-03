@@ -4,8 +4,8 @@ import 'source-map-support/register'
 
 import { ignoreOld, sequentialize } from 'grammy-middlewares'
 import { run } from '@grammyjs/runner'
-import addBasket from '@/handlers/addBasket'
-import addWish, { sendWishes } from '@/handlers/addWish'
+import addBasket from '@/handlers/baskets'
+import addWish, { completeWish, sendWishes } from '@/handlers/wishes'
 import attachUser from '@/middlewares/attachUser'
 import basketMenu, { sendBasketMenu } from '@/menus/basket'
 import bot from '@/helpers/bot'
@@ -15,6 +15,7 @@ import i18n from '@/helpers/i18n'
 import languageMenu from '@/menus/language'
 import sendHelp from '@/handlers/help'
 import startMongo from '@/helpers/startMongo'
+import wishMenu from '@/menus/wish'
 
 async function runApp() {
   console.log('Starting app...')
@@ -31,16 +32,28 @@ async function runApp() {
     // Menus
     .use(languageMenu)
     .use(basketMenu)
+    .use(wishMenu)
   // Commands
   bot.command(['help', 'start'], sendHelp)
   bot.command('language', handleLanguage)
-  bot.command('addBasket', async (ctx) => await addBasket(ctx))
-  bot.command('addWish', async (ctx) => await addWish(ctx))
+  bot.command(
+    ['addBasket', 'createBasket'],
+    async (ctx) => await addBasket(ctx)
+  )
+  bot.command(['addWish', 'createWish'], async (ctx) => await addWish(ctx))
   bot.command('checkWishes', async (ctx) =>
     ctx.dbuser.currentBasket ? await sendWishes(ctx) : await sendBasketMenu(ctx)
   )
+  bot.command('completeWish', async (ctx) =>
+    ctx.dbuser.currentBasket
+      ? await completeWish(ctx)
+      : await sendBasketMenu(ctx)
+  )
   // bot.command('share', async (ctx) => await shareWithFriend(ctx, ctx.match)))
-  bot.command('selectBasket', async (ctx) => await sendBasketMenu(ctx))
+  bot.command(
+    ['selectBasket', 'chooseBasket', 'currentBasket'],
+    async (ctx) => await sendBasketMenu(ctx)
+  )
   // Handle choosing the basket
   bot.on('callback_query:data', async (ctx) => {
     await ctx.answerCallbackQuery({

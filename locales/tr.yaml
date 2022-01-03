@@ -8,4 +8,5 @@ provideBasketName: Lütfen sepet adını belirtin 🧺
 addWish: Ne dilersin? ✨
 wishCreated: Harika 🏀 Artık /checkWishes komutunu kullanarak dileğinizi kontrol edebilirsiniz.
 notProperName: Lütfen, bunun gibi bir komut adı sağlayın <code>/command <b>isim</b></code>
-basketMenu: Выберите корзинку 🧺
+basketMenu: Choose the basket 🧺
+error: Whoops, something went wrong 👀
