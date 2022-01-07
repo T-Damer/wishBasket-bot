@@ -7,7 +7,7 @@
   "author": "t-damer <dpancov64@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "distribute": "yarn build-ts && node dist/app.js",
+    "start": "yarn build-ts && node dist/app.js",
     "develop": "tsc-watch --skipLibCheck --onSuccess 'node dist/app.js'",
     "build-ts": "tsc --skipLibCheck",
     "pretty": "prettier --check src",
